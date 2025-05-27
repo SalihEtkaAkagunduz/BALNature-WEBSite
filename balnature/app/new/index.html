@@ -1,0 +1,312 @@
+<!doctype html><html lang="en" class="no-touch">
+ 
+ 
+<head><meta charset="utf-8"><title>Space Entrypoint</title><meta name="description" content="JetBrains Space, the integrated team environment"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="robots" content="noindex"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-itunes-app" content="app-id=1474043444, app-argument=space://im/"><link rel="preload" type="application/json" as="fetch" crossorigin="anonymous" href="../epSettings.json"><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5P98');</script>
+<style>:root {
+            --loader-wrapper-background-color: white;
+            --loader-square-background-color: black;
+            --loader-dash-background-color: white;
+
+            --loader-ball-one-background-color: orange;
+            --loader-ball-two-background-color: red;
+        }
+
+        @media screen and (prefers-color-scheme: dark) {
+            :root {
+                --loader-wrapper-background-color: #18191b; /* CommonDarkTheme.backgroundColor */
+            }
+        }
+
+        @media screen {
+            * {
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        body {
+            font-size: 15px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            letter-spacing: -0.006px;
+
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        html:not(.no-ligatures) body {
+            font-feature-settings: 'liga', 'calt', 'cv05';
+        }
+
+        @supports (font-variation-settings: normal) {
+            html,
+            body {
+                font-family: 'Inter var', sans-serif;
+            }
+        }
+
+        html.stable-scrollbar-gutter {
+            scrollbar-gutter: stable;
+        }
+
+        body,
+        input {
+            line-height: 22px;
+        }
+
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin-top: 0;
+        }
+
+        body > #app,
+        body > #app > .descriptor {
+            height: 100%;
+            position: relative;
+        }
+
+        body > #drag-area {
+            -webkit-app-region: drag;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            z-index: 0;
+        }
+
+        .loader-hidden {
+            display: none;
+        }
+
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 6; /* XStyles.zIndexAboveOverlay */
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--loader-wrapper-background-color);
+        }
+
+        .loader-wrapper.loader-error {
+            flex-direction: column;
+            line-height: 32px;
+        }
+
+        .loader-wrapper-two {
+            position: relative;
+
+            top: -20px;
+            left: -20px;
+        }
+
+        .loader-square {
+            position: absolute;
+
+            width: 40px;
+            height: 40px;
+
+            background: var(--loader-square-background-color);
+
+            z-index: 1;
+        }
+
+        .loader-dash {
+            position: absolute;
+
+            bottom: 7px;
+            left: 7px;
+
+            width: 16px;
+            height: 4px;
+
+            background: var(--loader-dash-background-color);
+
+            z-index: 1;
+        }
+
+        .loader-ball-holder {
+            position: absolute;
+
+            width: 40px;
+            height: 40px;
+
+            animation: flying-ball 2s infinite ease-in-out;
+            will-change: transform;
+
+            z-index: 2;
+        }
+
+        .loader-ball-back {
+            z-index: 0;
+        }
+
+        .loader-ball-one,
+        .loader-ball-two {
+            position: absolute;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 100%;
+        }
+
+        .loader-ball-one {
+            background: var(--loader-ball-one-background-color);
+        }
+
+        .loader-ball-two {
+            background: var(--loader-ball-two-background-color);
+
+            animation: colored-ball 2s infinite ease-in-out;
+            will-change: opacity;
+        }
+
+        @keyframes flying-ball {
+            0% {
+                transform: translate(35px, 35px);
+            }
+
+            50% {
+                transform: translate(-35px, -35px);
+            }
+
+            100% {
+                transform: translate(35px, 35px);
+            }
+        }
+
+        @keyframes colored-ball {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }</style><link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon" sizes="16x16 32x32"/><link rel="apple-touch-icon" sizes="57x57" href="../static/apple-touch-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="../static/apple-touch-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="../static/apple-touch-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="../static/apple-touch-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="../static/apple-touch-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="../static/apple-touch-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="../static/apple-touch-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="../static/apple-touch-icon-152x152.png"/><link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon-180x180.png"/><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="/balnature/app/static/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="/balnature/app/static/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="/balnature/app/static/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="/balnature/app/static/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="/balnature/app/static/mstile-310x310.png"/><script defer="defer" src="../static/71.47db0d9ce272bd375670.js"></script><script defer="defer" src="../static/index.ce5f663c24433ef168e2.js"></script><script defer="defer" src="../static/auth.1b9528a9bb714b8107e5.js"></script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="drag-area"></div><div id="app"></div><div id="dialog"></div><div id="loader"><div id="splash" class="loader-hidden"><div class="loader-wrapper"><div class="loader-wrapper-two"><div class="loader-square"><div class="loader-dash"></div></div><div class="loader-ball-holder"><div class="loader-ball-one"></div><div class="loader-ball-two"></div></div></div></div></div><div id="critical-error" class="loader-hidden"><div class="loader-wrapper loader-error"><span>The application failed to load</span> <a href="javascript:(window.localStorage.clear(), window.location.reload())">Try again</a></div></div></div><script>if (localStorage.getItem("arenaPersistenceType") === "IndexedDB") {
+        const req = indexedDB.open("arenas.html", 1)
+        req.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains("arenas")) {
+              db.createObjectStore("arenas")
+            }
+        }
+
+        req.onsuccess = (event) => {
+            window.arenasCache = event.target.result;
+        }
+
+        req.onerror = (event) => {
+            console.error(event.target.error)
+        }
+    }
+
+    window.indexHtmlTimestamp = Date.now()
+    window.circletLoaderDisplayed = null
+    window.PUBLIC_PATH = "../static/index.html"
+
+    // Create a socket so that it's connected and ready to go as soon as needed
+    const wsProtocol = window.location.protocol === "https:" ? "wss://" : "ws://"
+    const wsHost = window.spaceOrgRegionUrl ? window.spaceOrgRegionUrl.split("//").pop() : window.location.host
+    const wsUrl = wsProtocol + wsHost + "/api/v1/ws"
+    let ws = new WebSocket(wsUrl)
+
+    window.getPreflightSocket = function() {
+        let thisWs = ws
+        ws = null
+        return thisWs
+    }
+
+    // Loader animation optimizations
+    window.setTimeout(function() {
+        window.circletLoaderDisplayed = Date.now()
+        const splash = document.querySelector("#splash")
+        if (splash != null) splash.classList.remove("loader-hidden")
+
+        window.setTimeout(function() {
+            const splash = document.querySelector("#splash")
+            const criticalError = document.querySelector("#critical-error")
+            if (splash != null && !splash.classList.contains("loader-hidden")) {
+                splash.classList.add("loader-hidden")
+                criticalError.classList.remove("loader-hidden")
+            }
+        }, 60000)
+    }, 1500)
+
+    function toggleZIndex(e) {
+        if (e.animationName === "flying-ball") {
+            e.target.classList.remove("loader-ball-back")
+            setTimeout(function() {
+                e.target.classList.add("loader-ball-back")
+            }, 1000)
+        }
+    }
+
+    const loader = document.querySelector(".loader-ball-holder")
+
+    loader.addEventListener("animationstart", function(e) {
+        toggleZIndex(e)
+    })
+
+    loader.addEventListener("animationiteration", function(e) {
+        toggleZIndex(e)
+    })
+
+    // Disable hover when the user touches the screen, re-enable when they move the mouse
+    const htmlElement = document.documentElement
+
+    function waitForTouchInput() {
+        htmlElement.addEventListener("touchstart", function(e) {
+            e.preventDefault()
+            htmlElement.classList.remove("no-touch")
+        }, {once: true, passive: false})
+
+        htmlElement.addEventListener("touchend", function(e) {
+            e.preventDefault()
+            setTimeout(function() {
+                waitForMouseInput()
+            }, 0)
+        }, {once: true, passive: false})
+    }
+
+    function waitForMouseInput() {
+        htmlElement.addEventListener("pointermove", function(e) {
+            if (e.pointerType === "mouse") {
+                htmlElement.classList.add("no-touch")
+                setTimeout(function() {
+                    waitForTouchInput()
+                }, 0)
+            }
+        }, {once: true, passive: false})
+    }
+
+    waitForTouchInput()</script></body>
+ 
+</html>
